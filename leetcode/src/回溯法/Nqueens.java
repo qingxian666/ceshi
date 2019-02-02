@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+//https://github.com/qingxian666/ceshi.git
+
 public class Nqueens {
 	//https://github.com/xiongraorao/Interview-Notebook/blob/master/notes/Leetcode%20%E9%A2%98%E8%A7%A3.md#dfs
     private List<List<String>> solutions;
