@@ -1,6 +1,6 @@
 package DynamicProgramming;
 
-public class BestSellStocksWithCooldown {
+public class StocksWithCooldown {
 	 public int maxProfit(int[] prices) {
 	        if (prices == null || prices.length == 0) return 0;
 	        int cursell = 0;
