@@ -1,4 +1,4 @@
-package SingleList;
+package LinkedList;
 
 public class RemoveDuplicatesNodeFromSortedListTwo {
 	public ListNode deleteDuplicates(ListNode head) {

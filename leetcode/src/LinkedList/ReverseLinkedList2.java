@@ -1,4 +1,4 @@
-package SingleList;
+package LinkedList;
 
 public class ReverseLinkedList2 {
 	public ListNode reverseBetween(ListNode head, int m, int n) {
