@@ -5,19 +5,19 @@ public class ReverseLinkedList {
 	// Time Complexity: O(n), Space Complexity: O(1)
 	 public ListNode reverseList(ListNode head) {
 	       if(head==null||head.next==null) return head;
-	        ListNode tail=null;
-	        ListNode p=head;
-	        ListNode q=p.next;
-	        while(q!=null){
-	            ListNode old=q.next;
-	            p.next=tail;
-	            q.next=p;
+	        ListNode dummy=null;
+	        ListNode cur=head;
+	        ListNode nexter=cur.next;
+	        while(nexter!=null){
+	            ListNode temp=nexter.next;
+	            cur.next=dummy;
+	            nexter.next=cur;
 	            
-	            tail=p;
-	            p=q;
-	            q=old;
+	            dummy=cur;
+	            cur=nexter;
+	            nexter=temp;
 	        }
-	        return p;
+	        return cur;
 	    }
 	 //�ݹ鷨
 	// Time Complexity: O(n), Space Complexity: O(n)
