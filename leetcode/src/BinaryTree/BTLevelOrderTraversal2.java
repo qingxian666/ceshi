@@ -11,8 +11,7 @@ public class BTLevelOrderTraversal2 {
         Collections.reverse(result);
         return result;
     }
-    void traverse(TreeNode root, int level,
-                  List<List<Integer>> result) {
+    void traverse(TreeNode root, int level,List<List<Integer>> result) {
         if (root == null) return;
 
         if (level > result.size()){
