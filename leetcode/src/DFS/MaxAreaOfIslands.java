@@ -1,4 +1,4 @@
-package »ØËİ·¨.floodfillËã·¨;
+package DFS;
 
 public class MaxAreaOfIslands {
 	public int maxAreaOfIsland(int[][] grid) {

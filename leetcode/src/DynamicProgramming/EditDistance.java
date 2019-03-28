@@ -2,8 +2,7 @@ package DynamicProgramming;
 
 public class EditDistance {
 	/*
-	 * 设状态为 f[i][j] ，表示 A[0,i] 和 B[0,j] 之间的最小编辑距离。设 A[0,i] 的形式
-是 str1c ， B[0,j] 的形式是 str2d ，
+	 * 设状态为 f[i][j] ，表示 A[0,i] 和 B[0,j] 之间的最小编辑距离。设 A[0,i] 的形式是 str1c ， B[0,j] 的形式是 str2d ，
 1. 如果 c==d ，则 f[i][j]=f[i-1][j-1] ；
 2. 如果 c!=d ，
 i. 如果将c替换成d，则 f[i][j]=f[i-1][j-1]+1 ；

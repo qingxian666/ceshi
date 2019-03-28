@@ -1,49 +1,29 @@
 package 回溯法;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class RestoreIPAddress {
 	public List<String> restoreIpAddresses(String s) {
-		List<String> result = new ArrayList<>();
-		List<String> ip = new ArrayList<>();; // 存放中间结果
-		dfs(s, ip, result, 0);
-		return result;
-		}
-		/**
-		* 解析字符串
-		* @param[in] s 字符串，输入数据
-		* @param[out] ip 存放中间结果
-		* @param[out] result 存放所有可能的IP地址
-		* @param[in] start 当前正在处理的 index
-		* @return 无
-		*/
-		private static void dfs(String s, List<String> ip,List<String> result, int start) {
-		if (ip.size() == 4 && start == s.length()) { // 找到一个合法解
-			result.add(ip.get(0) + '.' + ip.get(1) + '.' + ip.get(2) + '.' + ip.get(3));
-			return;
-		}
-		
-		if (s.length() - start > (4 - ip.size()) * 3)
-			return; // 剪枝
-		
-		if (s.length() - start < (4 - ip.size()))
-			return; // 剪枝
-		
-		int num = 0;
-		for (int i = start; i < start + 3 && i < s.length(); i++) {
-			num = num * 10 + (s.charAt(i) - '0');
-			if (num < 0 || num > 255) continue; // 剪枝
-			
-			ip.add(s.substring(start, i + 1));
-			dfs(s, ip, result, i + 1);
-			ip.remove(ip.size() - 1);
-			
-			if (num == 0) break; // 不允许前缀0，但允许单个0
-		 }
-		}
-		public static void main(String[] args) {
-			RestoreIPAddress s = new RestoreIPAddress();
-			s.restoreIpAddresses("1111");
-		}
+        List<String> list = new LinkedList<>();
+        backtrack(s,list,new StringBuilder(),0,0);
+        return list;
+    }
+    private void backtrack(String s, List<String> list, StringBuilder sb, int index, int level){
+        if(index > s.length() || level > 4) return;
+        else if(index == s.length() && level == 4){
+            list.add(sb.toString());
+            return;
+        }
+        for(int i = 1;i <= 3;i++){
+            if(index+i > s.length()) break;
+            int num = Integer.valueOf(s.substring(index,index+i));
+            if(i == 1 || i==2 && num >=10 && num <=99 || i == 3 && num >= 100 && num <= 255){
+                sb.append(num);
+                if(level < 3) sb.append(".");
+                backtrack(s,list,sb,index+i,level+1);
+                if(level < 3) sb.deleteCharAt(sb.length()-1);
+                sb.delete(sb.length()-i,sb.length());
+            }
+        }
+    }
 }

@@ -1,4 +1,4 @@
-package »ØËİ·¨.floodfillËã·¨;
+package DFS;
 
 public class FriendsCircle {
 	private int n;

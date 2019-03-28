@@ -18,16 +18,17 @@ public class NonOverlappingIntervals {
 		});
 */
 		    Arrays.sort(intervals, Comparator.comparingInt(o -> o.end));
-		    int cnt = 1;
+		    int cnt = 0;
 		    int end = intervals[0].end;
 		    for (int i = 1; i < intervals.length; i++) {
 		        if (intervals[i].start < end) {
+		        	cnt++;
 		            continue;
 		        }
 		        end = intervals[i].end;
-		        cnt++;
+		       
 		    }
-		    return intervals.length - cnt;
+		    return cnt;
 		  }
 }
 

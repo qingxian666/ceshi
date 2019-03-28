@@ -1,4 +1,4 @@
-package »ØËİ·¨.floodfillËã·¨;
+package DFS;
 
 public class SurroundedRegions {
 	private int m, n;
