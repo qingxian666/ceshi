@@ -3,22 +3,21 @@ package BinaryTree;
 import java.util.*;
 
 public class BTPreOrderTraversal {
-	public List<Integer> preorderTraversal(TreeNode node) {
+	public List<Integer> preorderTraversal(TreeNode root) {
 		//迭代方法
-		List<Integer> list = new LinkedList<Integer>();
-		Stack<TreeNode> rights = new Stack<TreeNode>();
-		while(node != null) {
-			list.add(node.val);
-			if (node.right != null) {
-				rights.push(node.right);
-			}
-			node = node.left;
-			if (node == null && !rights.isEmpty()) {
-				node = rights.pop();
-			}
-		}
-	    return list;
-	}
+        ArrayList<Integer> result = new ArrayList<>();
+        Stack<TreeNode> s = new Stack<>();
+        if (root != null) s.push(root);
+
+        while (!s.isEmpty()) {
+            final TreeNode p = s.pop();
+            result.add(p.val);
+
+            if (p.right != null) s.push(p.right);
+            if (p.left != null) s.push(p.left);
+        }
+        return result;
+    }
 	public List<Integer> preorderTraversal2(TreeNode root) {
 		//递归方法
 		List<Integer> pre = new LinkedList<Integer>();
