@@ -2,17 +2,17 @@ package DynamicProgramming;
 
 public class WiggleSubsequence {
 	public int wiggleMaxLength(int[] nums) {
-        if(nums.length == 0) return 0;
-    int count = 1;
-    int prevDiff = 0;
-    for (int i = 1; i < nums.length; i++) {
-        int diff = nums[i] - nums[i-1];
-        if( (diff > 0 && prevDiff <= 0) ||
-             (diff < 0 && prevDiff >=0) ) {
-            count++;
-            prevDiff = diff;
+        if (nums == null || nums.length == 0) {
+            return 0;
         }
-    }
-    return count;
+        int up = 1, down = 1;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] > nums[i - 1]) {
+                up = down + 1;
+            } else if (nums[i] < nums[i - 1]) {
+                down = up + 1;
+            }
+        }
+        return Math.max(up, down);
     }
 }

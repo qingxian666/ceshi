@@ -26,13 +26,13 @@ f[j] = max{f[i], 0 <= i < j && f[i] < f[j]} + 1
 		        int[] f = new int[nums.length];
 		        Arrays.fill(f, 1);
 		        int global = 1;
-		        for (int j = 1; j < nums.length; ++j) {
-		            for (int i = 0; i < j; ++i) {
-		                if (nums[i] < nums[j]) {
-		                    f[j] = Math.max(f[j], f[i] + 1);
+		        for (int i = 1; i < nums.length; ++i) {
+		            for (int j = 0; j < i; ++j) {
+		                if (nums[j] < nums[i]) {
+		                    f[i] = Math.max(f[i], f[j] + 1);
 		                }
 		            }
-		        global = Math.max(global, f[j]);
+		        global = Math.max(global, f[i]);
 		     }
 		        return global;
 		  }
