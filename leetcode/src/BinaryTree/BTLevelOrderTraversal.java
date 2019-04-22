@@ -32,7 +32,8 @@ public class BTLevelOrderTraversal {
         List<List<Integer>> wrapList = new LinkedList<List<Integer>>();
         
         if(root == null) return wrapList;
-        
+        //queue.offer       添加一个元素并返回true       如果队列已满，则返回false
+        //queue.poll        移除并返问队列头部的元素         如果队列为空，则返回null
         queue.offer(root);
         while(!queue.isEmpty()){
             int levelNum = queue.size();
