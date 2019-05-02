@@ -6,6 +6,7 @@ import java.util.LinkedList;
  
 
 public class meituan1 {
+	//病毒传播
     //感染病毒的点为true, 未感染的为false
     static boolean[] infected;
     static ArrayList<Integer>[] graph;
